@@ -107,7 +107,7 @@ form button:hover{
     font-weight: 700;
 }
 .title-calendar{
-    margin-top: -3rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
 }
 h2{
@@ -166,6 +166,28 @@ li{
 }
 .btn-delete:hover{
     background: rgb(172, 14, 14) !important;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin-top: 2rem;
+    background: rgb(64, 159, 64);
+}
+.link{
+    color: white;
+    font-size: 30px;
+    margin: 1rem;
+}
+.footer-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer p{
+    color: white;
+    letter-spacing: 2px;
 }
 
 

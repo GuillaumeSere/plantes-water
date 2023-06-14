@@ -30,8 +30,8 @@ const CalendarPlant = () => {
                 <p>Aucune plante à arroser aujourd'hui.</p>
             ) : (
                 <ul>
-                    {plantsToWater.map((plant) => (
-                        <li key={plant.id}> <img src={water} alt="icon" />{plant.name}</li>
+                    {plantsToWater.map((plant, id) => (
+                        <li key={id}> <img src={water} alt="icon" />{plant.name}</li>
                     ))}
                 </ul>
             )}
