@@ -23,7 +23,7 @@ const CalendarPlant = () => {
 
     return (
         <div className='container-calendar'>
-            <h1>Calendrier d'arrosage</h1>
+            <h1 className='title-calendar'>Calendrier d'arrosage</h1>
             <Calendar value={selectedDate} onChange={setSelectedDate} className="calendar" />
             <h4>Plantes à arroser aujourd'hui :</h4>
             {plantsToWater.length === 0 ? (
@@ -31,7 +31,7 @@ const CalendarPlant = () => {
             ) : (
                 <ul>
                     {plantsToWater.map((plant) => (
-                        <li key={plant.id}> <img src={water} alt="" />{plant.name}</li>
+                        <li key={plant.id}> <img src={water} alt="icon" />{plant.name}</li>
                     ))}
                 </ul>
             )}
