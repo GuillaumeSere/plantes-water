@@ -1,38 +1,157 @@
-.App {
-  text-align: center;
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding-top: 10rem;
+}
+.header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgb(64, 159, 64);
+    border-bottom: 2px solid rgb(107, 194, 76);
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+.header img{
+    width: 80px;
+}
+.title{
+    margin-top: 0;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: 1rem;
+    margin-right: 10rem;
+    max-width: 57%;
+    height: 459px;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.285);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.322);
+}
+form input{
+    margin-bottom: 1rem;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;   
+}
+form button{
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: rgb(64, 159, 64);
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-top: 1rem;
+}
+form button:hover{
+    background: rgba(0, 128, 0, 0.802);
+}
+.container-card{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.285);
+    padding: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.322);
+}
+.card div{
+    margin-bottom: .5rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.card span{
+    color: rgb(119, 119, 119);
+    font-weight: 700;
+}
+.card img{
+    width: 300px;
+    height: 300px;
+}
+.card button{
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: rgb(64, 159, 64);
+    border: none;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    margin-left: .5rem;
+    margin-top: .5rem;
+}
+.card button:hover{
+    background: rgba(0, 128, 0, 0.802);
+}
+h1{
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+h2{
+    position: absolute;
+    font-size: 35px;
+    top: 6rem;
+}
+h3{
+    font-size: 35px;
+    margin-bottom: 1rem;
+    margin: 1rem;
+}
+h4{
+    margin-top: -2rem;
+}
+li{
+    font-weight: 700;
+}
+.container-calendar{
+    max-width: 1440px;
+    margin-top: -32rem;
+    margin-right: 1rem;
+   align-items: flex-end;
+   justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.calendar{
+   margin-bottom: 2rem;
+}
+.btn-delete{
+    background: rgb(156, 14, 14) !important;
+}
+.btn-delete:hover{
+    background: rgb(172, 14, 14) !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media (max-width: 930px){
+    .container-calendar{
+        align-items: flex-start;
+        margin-top: 0;
+        margin: 1rem;
+    }
+    form{
+        max-width: 100%;
+        width: 90%;
+    }
+    .card img{
+        width: 270px;
+    }
 }
