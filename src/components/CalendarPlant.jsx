@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import water from '../images/water.png';
 
 const CalendarPlant = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -30,7 +31,7 @@ const CalendarPlant = () => {
             ) : (
                 <ul>
                     {plantsToWater.map((plant) => (
-                        <li key={plant.id}>{plant.name}</li>
+                        <li key={plant.id}> <img src={water} alt="" />{plant.name}</li>
                     ))}
                 </ul>
             )}
