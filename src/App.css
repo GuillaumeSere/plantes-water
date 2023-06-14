@@ -1,6 +1,18 @@
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    background: rgb(64, 159, 64);
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(90deg, #52aff5 0%, #85ed62 100%);
+    border-radius: 10px;
+}
+
 .container{
     max-width: 1440px;
     margin: 0 auto;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
@@ -40,13 +52,13 @@ form input{
     margin-bottom: 1rem;
     text-align: center;
     padding: 0.5rem;
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     font-weight: 700;   
 }
 form button{
     padding: 0.5rem;
-    border-radius: 10px;
+    border-radius: 5px;
     background: rgb(64, 159, 64);
     border: none;
     cursor: pointer;
@@ -58,6 +70,18 @@ form button{
 }
 form button:hover{
     background: rgba(0, 128, 0, 0.802);
+    color: black;
+}
+input[type="file" i]::-webkit-file-upload-button{
+    background: rgb(34, 141, 171);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+input[type="file" i]::-webkit-file-upload-button:hover{
+    background: rgb(36, 152, 184);
     color: black;
 }
 .container-card{
@@ -91,7 +115,7 @@ form button:hover{
 }
 .card button{
     padding: 0.5rem;
-    border-radius: 10px;
+    border-radius: 5px;
     background: rgb(64, 159, 64);
     border: none;
     cursor: pointer;
@@ -107,7 +131,7 @@ form button:hover{
     font-weight: 700;
 }
 .title-calendar{
-    margin-top: 1rem;
+    margin-top: -5rem;
     margin-bottom: 2rem;
 }
 h2{
@@ -134,9 +158,9 @@ li{
 }
 .container-calendar{
     max-width: 1440px;
+    margin-right: 1rem;
     margin-top: -31.4rem;
     padding-top: -1rem;
-    margin-right: 1rem;
    align-items: flex-end;
    justify-content: center;
     display: flex;
@@ -146,6 +170,7 @@ li{
    margin-bottom: 3rem;
    border-radius: 10px;
    color: rgb(64, 159, 64);
+   box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.322);
 }
 .react-calendar__navigation__label{
     background: rgb(64, 159, 64)!important;
@@ -172,8 +197,9 @@ li{
     justify-content: center;
     align-items: center;
     height: 80px;
-    margin-top: 2rem;
+    margin-top: 10rem;
     background: rgb(64, 159, 64);
+    border-top: 2px solid rgb(107, 194, 76);
 }
 .link{
     color: white;
@@ -198,7 +224,7 @@ li{
         margin: 1rem;
         margin-left: 5rem;
     }
-    h1{
+    .title-calendar{
         margin-top: 1rem;
     }
     form{
