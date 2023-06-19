@@ -8,15 +8,12 @@
     background: linear-gradient(90deg, #52aff5 0%, #85ed62 100%);
     border-radius: 10px;
 }
-
-.container{
+.content{
     max-width: 1440px;
     margin: 0 auto;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
-    padding-top: 10rem;
+}
+.container{
+    margin: 0rem 1rem 2rem 1rem;
 }
 .header{
     display: flex;
@@ -27,6 +24,7 @@
     position: fixed;
     width: 100%;
     z-index: 1;
+    margin-bottom: 5rem;
 }
 .header img{
     width: 80px;
@@ -35,11 +33,24 @@
 .title{
     margin-top: 0;
 }
+.description{
+    display: flex;
+    flex-direction: column;
+   margin: 0rem 1rem 2rem 1rem;
+    padding-top: 7rem;
+}
+.title-description{
+    margin-bottom: 1rem;
+}
+.intro{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    color: rgb(59, 59, 59);
+}
 form{
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    margin: 1rem;
     margin-right: 10rem;
     max-width: 57%;
     height: 459px;
@@ -87,7 +98,7 @@ input[type="file" i]::-webkit-file-upload-button:hover{
 .container-card{
     display: flex;
     flex-wrap: wrap;
-    margin: 1rem;
+    margin-top: 1rem;
 }
 .card{
     position: relative;
@@ -131,13 +142,11 @@ input[type="file" i]::-webkit-file-upload-button:hover{
     font-weight: 700;
 }
 .title-calendar{
-    margin-top: -5rem;
-    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    margin-top: -3rem;
 }
 h2{
-    position: absolute;
     font-size: 35px;
-    top: 6rem;
 }
 h3{
     font-size: 35px;

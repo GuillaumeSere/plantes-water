@@ -152,6 +152,50 @@ const PlantList = () => {
 
     return (
         <div className='container'>
+               <h2>Mes Plantes</h2>
+            <div className='container-card'>
+                {plants.map((plant, index) => (
+                    <div key={index}>
+                        {editingPlantIndex === index ? (
+                            <form onSubmit={(e) => handleSaveChanges(e, index)}>
+                                <input
+                                    type="text"
+                                    value={editedPlant.name}
+                                    onChange={(e) => handleInputChange(e, 'name')}
+                                />
+                                <input
+                                    type="text"
+                                    value={editedPlant.species}
+                                    onChange={(e) => handleInputChange(e, 'species')}
+                                />
+                                <input
+                                    type="text"
+                                    value={editedPlant.waterAmount}
+                                    onChange={(e) => handleInputChange(e, 'waterAmount')}
+                                />
+                                <input
+                                    type="text"
+                                    value={editedPlant.waterFrequency}
+                                    onChange={(e) => handleInputChange(e, 'waterFrequency')}
+                                />
+                                <button type="submit">Enregistrer les modifications</button>
+                            </form>
+                        ) : (
+                            <div className='card'>
+                                <div> <strong>{plant.name} : </strong><span>{plant.species}</span></div>
+                                <div><strong>Quantitée d'eau : </strong><span>{plant.waterAmount}</span></div>
+                                <div> <strong>Fréquence d'arrosage :</strong><span>{plant.waterFrequency}</span></div>
+                                {plant.image && <img src={plant.image} alt={plant.name} />}
+                                <strong>Date d'arrosage :</strong>
+                                <span>{plant.startDate ? plant.startDate.toLocaleDateString() : ''}</span>
+                                <button onClick={() => handleEditPlant(index)}>Modifier</button>
+                                <button className='btn-delete' onClick={() => handleDeletePlant(index)}>Supprimer</button>
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
+            <h3>Ajouter Plante</h3>
             <form onSubmit={handleAddPlant}>
                 <input
                     type="text"
@@ -195,50 +239,6 @@ const PlantList = () => {
                 />
                 <button type="submit">Ajouter Plante</button>
             </form>
-            <h3>Ajouter Plante</h3>
-            <div className='container-card'>
-                <h2>Mes Plantes</h2>
-                {plants.map((plant, index) => (
-                    <div key={index}>
-                        {editingPlantIndex === index ? (
-                            <form onSubmit={(e) => handleSaveChanges(e, index)}>
-                                <input
-                                    type="text"
-                                    value={editedPlant.name}
-                                    onChange={(e) => handleInputChange(e, 'name')}
-                                />
-                                <input
-                                    type="text"
-                                    value={editedPlant.species}
-                                    onChange={(e) => handleInputChange(e, 'species')}
-                                />
-                                <input
-                                    type="text"
-                                    value={editedPlant.waterAmount}
-                                    onChange={(e) => handleInputChange(e, 'waterAmount')}
-                                />
-                                <input
-                                    type="text"
-                                    value={editedPlant.waterFrequency}
-                                    onChange={(e) => handleInputChange(e, 'waterFrequency')}
-                                />
-                                <button type="submit">Enregistrer les modifications</button>
-                            </form>
-                        ) : (
-                            <div className='card'>
-                                <div> <strong>{plant.name} : </strong><span>{plant.species}</span></div>
-                                <div><strong>Quantitée d'eau : </strong><span>{plant.waterAmount}</span></div>
-                                <div> <strong>Fréquence d'arrosage :</strong><span>{plant.waterFrequency}</span></div>
-                                {plant.image && <img src={plant.image} alt={plant.name} />}
-                                <strong>Date d'arrosage :</strong>
-                                <span>{plant.startDate ? plant.startDate.toLocaleDateString() : ''}</span>
-                                <button onClick={() => handleEditPlant(index)}>Modifier</button>
-                                <button className='btn-delete' onClick={() => handleDeletePlant(index)}>Supprimer</button>
-                            </div>
-                        )}
-                    </div>
-                ))}
-            </div>
         </div>
     );
 };
