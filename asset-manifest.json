@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/plantes-water/static/css/main.fdc9fc4c.css",
+    "main.css": "/plantes-water/static/css/main.7318101f.css",
     "main.js": "/plantes-water/static/js/main.9f90b3cb.js",
     "static/media/logo.png": "/plantes-water/static/media/logo.83c94f1899a32a516324.png",
     "index.html": "/plantes-water/index.html",
-    "main.fdc9fc4c.css.map": "/plantes-water/static/css/main.fdc9fc4c.css.map",
+    "main.7318101f.css.map": "/plantes-water/static/css/main.7318101f.css.map",
     "main.9f90b3cb.js.map": "/plantes-water/static/js/main.9f90b3cb.js.map"
   },
   "entrypoints": [
-    "static/css/main.fdc9fc4c.css",
+    "static/css/main.7318101f.css",
     "static/js/main.9f90b3cb.js"
   ]
 }
