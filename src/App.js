@@ -7,12 +7,12 @@ import PlantList from './components/PlantList';
 const App = () => {
 
     return (
-        <div>
+        <>
             <Header />
             <PlantList />
             <CalendarPlant />
             <Footer />
-        </div>
+        </>
     );
 };
 
