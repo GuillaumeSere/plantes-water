@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {FaArrowLeft} from 'react-icons/fa';
+import {FaArrowRight} from 'react-icons/fa';
 
 const PlantAdvice = () => {
     const [plants, setPlants] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
+    const itemsPerPage = 16;
 
     useEffect(() => {
         const fetchPlants = async () => {
@@ -17,8 +22,8 @@ const PlantAdvice = () => {
                 };
 
                 const response = await axios.request(options);
+                setTotalPages(Math.ceil(response.data.length / itemsPerPage));
                 setPlants(response.data);
-                console.log(response.data)
             } catch (error) {
                 console.error('Error fetching plants:', error);
             }
@@ -27,12 +32,33 @@ const PlantAdvice = () => {
         fetchPlants();
     }, []);
 
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage((prevPage) => prevPage - 1);
+        }
+    };
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) {
+            setCurrentPage((prevPage) => prevPage + 1);
+        }
+    };
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentPlants = plants.slice(startIndex, endIndex);
+
+
     return (
         <div className='container-plante'>
             {plants.length > 0 ? (
                 <div className='card-plante'>
-                       <h2 className='title-plante'>Info Plantes</h2>
-                    {plants.map((plant) => (
+                    <h2 className='title-plante'>Info Plantes</h2>
+                    <div className='btn'>
+                        <button className='btn-left' onClick={handlePrevPage} disabled={currentPage === 1}><FaArrowLeft/></button>
+                        <button className='btn-right' onClick={handleNextPage} disabled={currentPage === totalPages}><FaArrowRight/></button>
+                    </div>
+                    {currentPlants.map((plant) => (
                         <div key={plant.id} className='plante'>
                             <div className='title-category'><span>Categorie: </span>{plant.Categories}</div>
                             <img src={plant.Img} alt={plant['Common name (fr.)']} />

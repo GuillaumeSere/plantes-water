@@ -250,6 +250,25 @@ li{
     color: rgb(23, 125, 23);
     font-weight: bold;
 }
+.btn{
+    position: absolute;
+    margin-top: -2rem;
+    right: 45%;
+    padding: 1rem;
+}
+.btn-left{
+    margin-right: 1rem;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.btn-right{
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
 .footer{
     display: flex;
     justify-content: center;
