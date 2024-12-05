@@ -13,7 +13,9 @@ const Description = () => {
                 <p>🌿 Avec cette application, vous pouvez créer votre propre
                     collection de plantes en ajoutant les informations
                     essentielles telles que le nom de la plante, l'espèce,
-                    la quantité d'eau nécessaire et la fréquence d'arrosage.</p><br />
+                    la quantité d'eau nécessaire et la fréquence d'arrosage.
+                    Pour la fréquence d'arrosage, il faut indiquer le nombre de
+                     jours entre lesquel l'arrosage doit être effectuer.</p><br />
                 <p>📅 Le calendrier intégré vous permet de planifier les dates
                     d'arrosage pour chaque plante. Il vous suffit de sélectionner
                     une date dans le calendrier et l'application vous rappellera
