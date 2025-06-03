@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { sendWateringReminder } from '../services/emailService';
 
 const PlantList = () => {
 
@@ -19,6 +20,8 @@ const PlantList = () => {
         waterFrequency: '',
         startDate: new Date()
     });
+    const [userEmail, setUserEmail] = useState(localStorage.getItem('userEmail') || '');
+    const [isEmailValid, setIsEmailValid] = useState(false);
 
     const loadPlantsFromLocalStorage = () => {
         const savedPlants = localStorage.getItem('plants');
@@ -150,9 +153,63 @@ const PlantList = () => {
         savePlantsToLocalStorage(updatedPlants);
     };
 
+    // Ajout de la fonction de vérification des plantes à arroser
+    const checkPlantsToWater = () => {
+        const today = new Date();
+        const plantsToWater = plants.filter(plant => {
+            const wateringDate = new Date(plant.startDate);
+            return wateringDate.toDateString() === today.toDateString();
+        });
+
+        if (plantsToWater.length > 0 && userEmail) {
+            plantsToWater.forEach(plant => {
+                sendWateringReminder(plant, userEmail);
+            });
+        }
+    };
+
+    // Vérification quotidienne des plantes à arroser
+    useEffect(() => {
+        const checkInterval = setInterval(checkPlantsToWater, 24 * 60 * 60 * 1000); // Vérifie toutes les 24 heures
+        return () => clearInterval(checkInterval);
+    }, [plants, userEmail]);
+
+    const handleEmailSubmit = (e) => {
+        e.preventDefault();
+        if (userEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail)) {
+            localStorage.setItem('userEmail', userEmail);
+            setIsEmailValid(true);
+            // Vérifier immédiatement les plantes à arroser
+            checkPlantsToWater();
+        }
+    };
+
     return (
         <div className='container'>
-               <h2>Mes Plantes</h2>
+            <h1>Entrez votre mail pour les notifications</h1>
+            <div className='email-settings'>
+                <form onSubmit={handleEmailSubmit} className="email-form">
+                    <input
+                        type="email"
+                        placeholder="Votre email pour les notifications"
+                        value={userEmail}
+                        onChange={(e) => setUserEmail(e.target.value)}
+                        className="email-input"
+                        required
+                    />
+                    <button 
+                        type="submit" 
+                        className="btn-validate"
+                        disabled={!userEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail)}
+                    >
+                        Valider
+                    </button>
+                    {isEmailValid && (
+                    <p className="email-success">Email validé avec succès ! Vous recevrez des notifications pour l'arrosage de vos plantes.</p>
+                )}
+                </form>
+            </div>
+            <h2>Mes Plantes</h2>
             <div className='container-card'>
                 {plants.map((plant, index) => (
                     <div key={index}>
