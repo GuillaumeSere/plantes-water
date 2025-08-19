@@ -40,8 +40,9 @@
 .description{
     display: flex;
     flex-direction: column;
-   margin: 0rem 1rem 2rem 1rem;
+    margin: 0rem 1rem 2rem 1rem;
     padding-top: 7rem;
+    margin-bottom: 1rem;
 }
 .title-description{
     margin-bottom: 1rem;
@@ -50,6 +51,13 @@
 .intro{
     font-family: 'Roboto Mono', monospace;
     color: rgb(59, 59, 59);
+        background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 30px 10px rgba(0, 0, 0, 0.322);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .email-input{
    width: 300px;

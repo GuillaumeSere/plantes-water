@@ -184,6 +184,19 @@ const PlantList = () => {
         }
     };
 
+    // Fonction pour mettre à jour la date d'arrosage d'une plante
+    const handleWateredToday = (index) => {
+        const updatedPlants = [...plants];
+        const today = new Date();
+        updatedPlants[index].startDate = today;
+        // Recalcule les prochaines dates d'arrosage
+        if (updatedPlants[index].waterFrequency) {
+            updatedPlants[index].wateringDates = generateWateringDates(today, updatedPlants[index].waterFrequency);
+        }
+        setPlants(updatedPlants);
+        savePlantsToLocalStorage(updatedPlants);
+    };
+
     return (
         <div className='container'>
             <h1>Entrez votre mail pour les notifications</h1>
@@ -244,7 +257,8 @@ const PlantList = () => {
                                 <div> <strong>Fréquence d'arrosage :</strong><span>{plant.waterFrequency}</span></div>
                                 {plant.image && <img src={plant.image} alt={plant.name} />}
                                 <strong>Date d'arrosage :</strong>
-                                <span>{plant.startDate ? plant.startDate.toLocaleDateString() : ''}</span>
+                                <span>{plant.startDate ? new Date(plant.startDate).toLocaleDateString() : ''}</span>
+                                <button onClick={() => handleWateredToday(index)} style={{marginRight: '8px'}}>Arrosée aujourd'hui</button>
                                 <button onClick={() => handleEditPlant(index)}>Modifier</button>
                                 <button className='btn-delete' onClick={() => handleDeletePlant(index)}>Supprimer</button>
                             </div>
