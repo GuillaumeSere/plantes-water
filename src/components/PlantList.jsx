@@ -308,7 +308,7 @@ const PlantList = () => {
                     value={newPlant.waterFrequency}
                     onChange={(e) => handleInputChange(e, 'waterFrequency')}
                 />
-                <small style={{color: '#2e7d32'}}>Indiquez le nombre de jours entre chaque arrosage</small>
+
                 <input
                     type="date"
                     name="startDate"
