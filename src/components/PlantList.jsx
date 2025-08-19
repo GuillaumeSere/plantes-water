@@ -101,10 +101,11 @@ const PlantList = () => {
     const generateWateringDates = (startDate, frequency) => {
         const wateringDates = [];
         let currentDate = new Date(startDate);
+        const freq = Number(frequency);
 
-        while (wateringDates.length < 30) {
+        for (let i = 0; i < 30; i++) {
             wateringDates.push(currentDate.toISOString().split('T')[0]);
-            currentDate.setDate(currentDate.getDate() + parseInt(frequency));
+            currentDate = new Date(currentDate.getTime() + freq * 24 * 60 * 60 * 1000);
         }
 
         return wateringDates;
@@ -130,8 +131,12 @@ const PlantList = () => {
         e.preventDefault();
 
         const updatedPlants = [...plants];
+        // Met à jour la plante
         updatedPlants[index] = { ...updatedPlants[index], ...editedPlant };
-
+        // Recalcule les dates d'arrosage si la fréquence ou la date a changé
+        if (editedPlant.waterFrequency && editedPlant.startDate) {
+            updatedPlants[index].wateringDates = generateWateringDates(editedPlant.startDate, editedPlant.waterFrequency);
+        }
         setPlants(updatedPlants);
         savePlantsToLocalStorage(updatedPlants);
 
@@ -243,11 +248,15 @@ const PlantList = () => {
                                     value={editedPlant.waterAmount}
                                     onChange={(e) => handleInputChange(e, 'waterAmount')}
                                 />
+                                <label htmlFor="edit-waterFrequency"><strong>Nombre de jours entre chaque arrosage :</strong></label>
                                 <input
-                                    type="text"
+                                    id="edit-waterFrequency"
+                                    type="number"
+                                    min="1"
                                     value={editedPlant.waterFrequency}
                                     onChange={(e) => handleInputChange(e, 'waterFrequency')}
                                 />
+                                <small style={{color: '#2e7d32'}}>Exemple : 1 = tous les jours, 7 = toutes les semaines</small>
                                 <button type="submit">Enregistrer les modifications</button>
                             </form>
                         ) : (
@@ -289,13 +298,17 @@ const PlantList = () => {
                     value={newPlant.waterAmount}
                     onChange={(e) => handleInputChange(e, 'waterAmount')}
                 />
+                <label htmlFor="add-waterFrequency"><strong>Nombre de jours entre chaque arrosage :</strong></label>
                 <input
-                    type="text"
+                    id="add-waterFrequency"
+                    type="number"
                     name="waterFrequency"
-                    placeholder="Fréquence d'arrosage"
+                    min="1"
+                    placeholder="Ex : 1 = tous les jours, 7 = toutes les semaines"
                     value={newPlant.waterFrequency}
                     onChange={(e) => handleInputChange(e, 'waterFrequency')}
                 />
+                <small style={{color: '#2e7d32'}}>Indiquez le nombre de jours entre chaque arrosage</small>
                 <input
                     type="date"
                     name="startDate"
