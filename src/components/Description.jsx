@@ -5,15 +5,14 @@ const Description = () => {
         <div className='description'>
             <h1 className='title-description'>Description</h1>
             <div className="intro">
-                <p className='text-description'>🌱📱 Découvrez mon application de gestion des plantes,
+                <p className='text-description'>
+                🌱📱 Découvrez mon application de gestion des plantes,
                     conçue pour simplifier et améliorer votre expérience en
-                    tant qu'amateur de plantes !🌱📱 Découvrez mon application
-                    de gestion des plantes, conçue pour simplifier et améliorer
-                    votre expérience en tant qu'amateur de plantes !</p><br />
-                <p className='text-description'>🌿 Avec cette application, vous pouvez créer votre propre
+                    tant qu'amateur de plantes !🌱📱 
+                     Avec cette application, vous pouvez créer votre propre
                     collection de plantes en ajoutant les informations
                     essentielles telles que le nom de la plante, l'espèce,
-                    la quantité d'eau nécessaire et la fréquence d'arrosage.
+                    la quantité d'eau nécessaire et la fréquence d'arrosage.🌿
                     Pour la fréquence d'arrosage, il faut indiquer le nombre de
                      jours entre lesquel l'arrosage doit être effectuer.</p><br />
                 <p className='text-description'>📅 Le calendrier intégré vous permet de planifier les dates
